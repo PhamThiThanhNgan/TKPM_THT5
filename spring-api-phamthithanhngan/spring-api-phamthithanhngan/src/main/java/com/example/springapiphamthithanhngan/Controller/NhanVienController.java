@@ -23,4 +23,22 @@ public class NhanVienController {
         }
         return nhanViens;
     }
+    //Câu 8
+    @RequestMapping(value = "/tongsoluongnhanvien", method = RequestMethod.GET)
+    public String tongSoLuongNhanVien(){
+        int soLuong = nhanVienRepository.tinhTongLuong();
+        if(soLuong == 0){
+            ResponseEntity.notFound().build();
+        }
+        return  "Tổng số lương phải trả cho các nhân viên là " + soLuong;
+    }
+    //Câu 9
+    @RequestMapping(value = "/manhanvienlaimaybayboeing", method = RequestMethod.GET)
+    public List<String> maNhanVienLaiMayBayBoeing(){
+        List<String> maNhanViens = nhanVienRepository.getMaByLoaiMayBay();
+        if(maNhanViens == null){
+            ResponseEntity.notFound().build();
+        }
+        return  maNhanViens;
+    }
 }
