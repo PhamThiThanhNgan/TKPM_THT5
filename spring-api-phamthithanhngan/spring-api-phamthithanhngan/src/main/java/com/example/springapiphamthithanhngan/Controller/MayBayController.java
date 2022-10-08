@@ -3,6 +3,7 @@ package com.example.springapiphamthithanhngan.Controller;
 import com.example.springapiphamthithanhngan.Service.MayBayRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,5 +31,14 @@ public class MayBayController {
             ResponseEntity.notFound().build();
         }
         return  "Có " + soLoaiMayBay + " loại máy bay Boeing";
+    }
+    //Câu 11
+    @RequestMapping(value = "/timmamaybaytheoho/{hoNV}", method = RequestMethod.GET)
+    public List<Integer> nhanVienLaiMayBay747(@PathVariable("hoNV") String hoNV){
+        List<Integer> maMayBays = mayBayRepository.getMaMBByTenNV(hoNV);
+        if(maMayBays == null){
+            ResponseEntity.notFound().build();
+        }
+        return  maMayBays;
     }
 }
