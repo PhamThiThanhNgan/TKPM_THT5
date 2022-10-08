@@ -42,4 +42,13 @@ public class ChuyenBayController {
         }
         return chuyenBays;
     }
+    //Câu 6
+    @RequestMapping(value = "/sochuyenbayxuatphattusaigon/{gaDi}", method = RequestMethod.GET)
+    public String soChuyenBayXuatPhatTuSaiGon(@PathVariable("gaDi") String gaDi){
+        int soChuyenBay = chuyenBayRepository.findChuyenBayByGaDi(gaDi);
+        if(soChuyenBay == 0){
+            ResponseEntity.notFound().build();
+        }
+        return  "Có " + soChuyenBay + " chuyến bay xuất phát từ Sài Gòn";
+    }
 }
