@@ -9,4 +9,6 @@ import java.util.List;
 public interface ChuyenBayRepository extends CrudRepository<ChuyenBay, String> {
     @Query("select cb from ChuyenBay cb where cb.gaDen = ?1")
     List<ChuyenBay> findChuyenBayByGaDen(String gaDen);
+    @Query("select cb from ChuyenBay cb where cb.doDai between 8000 and 10000")
+    List<ChuyenBay> findChuyenBayByDoDai();
 }
