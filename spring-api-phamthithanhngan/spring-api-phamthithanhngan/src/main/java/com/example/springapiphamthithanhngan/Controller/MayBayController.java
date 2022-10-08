@@ -22,4 +22,13 @@ public class MayBayController {
         }
         return mayBays;
     }
+    //Câu 7
+    @RequestMapping(value = "/soloaimaybayboeing", method = RequestMethod.GET)
+    public String soLoaiMayBayBoeing(){
+        int soLoaiMayBay = mayBayRepository.findLoaiMayBay();
+        if(soLoaiMayBay == 0){
+            ResponseEntity.notFound().build();
+        }
+        return  "Có " + soLoaiMayBay + " loại máy bay Boeing";
+    }
 }
