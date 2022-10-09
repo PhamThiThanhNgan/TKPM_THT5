@@ -79,4 +79,13 @@ public class ChuyenBayController {
         }
         return  chuyenBays;
     }
+    //Câu 19
+    @RequestMapping(value = "/chiphichuyenbayditugaadenbvelaia", method = RequestMethod.GET)
+    public List<Map<String, Object>> chiPhiCBDiTuGaADenBVeLaiGaA(){
+        List<Map<String, Object>> chuyenBays = chuyenBayRepository.chiPhiCBDiTuGaADenBVeLaiA();
+        if(chuyenBays == null){
+            ResponseEntity.notFound().build();
+        }
+        return  chuyenBays;
+    }
 }

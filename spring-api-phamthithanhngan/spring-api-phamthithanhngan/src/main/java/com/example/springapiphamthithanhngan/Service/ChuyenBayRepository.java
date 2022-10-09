@@ -25,4 +25,7 @@ public interface ChuyenBayRepository extends CrudRepository<ChuyenBay, String> {
     @Query(value = "select cb.gaDi, count(cb.maCB) as SoLuongChuyenBay " +
             "from chuyenbay cb group by cb.gaDi", nativeQuery = true)
     List<Map<String, Object>> countCBDiTuGaADenBVeLaiA();
+    @Query(value = "select cb.gaDi, sum(cb.chiPhi) as ChiPhi " +
+            "from chuyenbay cb group by cb.gaDi", nativeQuery = true)
+    List<Map<String, Object>> chiPhiCBDiTuGaADenBVeLaiA();
 }
