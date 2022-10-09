@@ -23,4 +23,8 @@ public interface NhanVienRepository extends CrudRepository<NhanVien, String> {
             "and nv.maNV in (select cn.MaNV from ChungNhan cn, MayBay mb " +
             "where cn.MaMB = mb.maMB and mb.loai like 'Airbus%')", nativeQuery = true)
     List<String> getMaByLoaiMB();
+    @Query(value = "select nv.ten from NhanVien nv " +
+            "where nv.maNV in (select cn.MaNV from ChungNhan cn, MayBay mb " +
+            "where cn.MaMB = mb.maMB and mb.loai like 'Boeing%')", nativeQuery = true)
+    List<String> findTenNhanVienLaiBoeing();
 }
