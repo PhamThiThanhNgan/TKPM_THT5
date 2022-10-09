@@ -28,4 +28,7 @@ public interface ChuyenBayRepository extends CrudRepository<ChuyenBay, String> {
     @Query(value = "select cb.gaDi, sum(cb.chiPhi) as ChiPhi " +
             "from chuyenbay cb group by cb.gaDi", nativeQuery = true)
     List<Map<String, Object>> chiPhiCBDiTuGaADenBVeLaiA();
+    @Query("select cb from ChuyenBay cb " +
+            "where cb.gioDi < Time('12:00')")
+    List<ChuyenBay> findChuyenBayKhoiHanhTruoc12h();
 }

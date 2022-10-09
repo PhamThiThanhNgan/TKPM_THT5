@@ -88,4 +88,13 @@ public class ChuyenBayController {
         }
         return  chuyenBays;
     }
+    //Câu 20
+    @RequestMapping(value = "/chuyenbaykhoihanhtruoc12h", method = RequestMethod.GET)
+    public List<ChuyenBay> chuyenBayKhoiHanhTruoc12h(){
+        List<ChuyenBay> chuyenBays = chuyenBayRepository.findChuyenBayKhoiHanhTruoc12h();
+        if(chuyenBays == null){
+            ResponseEntity.notFound().build();
+        }
+        return  chuyenBays;
+    }
 }
