@@ -41,4 +41,13 @@ public class MayBayController {
         }
         return  maMayBays;
     }
+    // Câu 13
+    @RequestMapping(value = "/loaimaybaydichuyenvn280/{maCB}", method = RequestMethod.GET)
+    public List<String> maPhiCongVuaLaiBoeingVuaLaiAirbus(@PathVariable("maCB") String maCB){
+        List<String> loaiMBs = mayBayRepository.loaiMayBayChuyenVN280(maCB);
+        if(loaiMBs == null){
+            ResponseEntity.notFound().build();
+        }
+        return  loaiMBs;
+    }
 }
