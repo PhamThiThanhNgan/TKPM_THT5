@@ -51,4 +51,13 @@ public class NhanVienController {
         }
         return  nhanViens;
     }
+    //Câu 12
+    @RequestMapping(value = "/maphicongvualaiboeingvaairbus", method = RequestMethod.GET)
+    public List<String> maPhiCongVuaLaiBoeingVuaLaiAirbus(){
+        List<String> maPhiCongs = nhanVienRepository.getMaByLoaiMB();
+        if(maPhiCongs == null){
+            ResponseEntity.notFound().build();
+        }
+        return  maPhiCongs;
+    }
 }
