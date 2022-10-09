@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class ChuyenBayController {
@@ -65,6 +66,15 @@ public class ChuyenBayController {
     public List<ChuyenBay> timCBDiTuGaADenBVeLaiA(){
         List<ChuyenBay> chuyenBays = chuyenBayRepository.findCBDiTuGaADenBVeLaiA();
         if(chuyenBays== null){
+            ResponseEntity.notFound().build();
+        }
+        return  chuyenBays;
+    }
+    //Câu 18
+    @RequestMapping(value = "/demchuyenbayditugaadenbvelaia", method = RequestMethod.GET)
+    public List<Map<String, Object>> countCBDiTuGaADenBVeLaiGaA(){
+        List<Map<String, Object>> chuyenBays = chuyenBayRepository.countCBDiTuGaADenBVeLaiA();
+        if(chuyenBays == null){
             ResponseEntity.notFound().build();
         }
         return  chuyenBays;
